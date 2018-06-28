@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import socket from '../../services/socket';
+import logo from '../../../images/shark.svg';
 import api from '../../services/api';
 
 class Login extends Component {
@@ -46,21 +48,32 @@ class Login extends Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <h1>Login Page</h1>
-        <input value={this.state.name} name="name" onChange={this.handleInputChange} type="text" placeholder="Name" /> 
-        <input value={this.state.team} name="team" onChange={this.handleInputChange} type="text" placeholder="Team" /> 
-        <input checked={this.state.expectator} name="expectator" onChange={this.handleInputChange} type="checkbox" />
+        <div id='container'>
+        <div className='bgLogoTitle'>
+          <img id='logo' src={logo} /> <span id='spanLogoTitle'>Welcome to Shark's Poker!</span>
+        </div>
 
-        <input value={this.state.newGame} name="newGame" onChange={this.handleInputChange} type="text" placeholder="Room Name" />         
-        <button onClick={this.createNewGame} >Create new Game</button>
+        <h5><span className='spanOrange'>Input your info to join the game!</span></h5>
 
-        <input value={this.state.existingGame} name="existingGame" onChange={this.handleInputChange} type="text" placeholder="Room ID" />         
-        <button onClick={this.joinGame} >Enter Game</button>
-        
-      </div>
+        <div className='boxEnterRoom'>
+          <input value={this.state.name} name="name" onChange={this.handleInputChange} className='form-control' type='text' placeholder='Name' /><br />
+          <input value={this.state.team} name="team" onChange={this.handleInputChange} className='form-control' type='text' placeholder='Team' /><br />
+          <input checked={this.state.expectator} name="expectator" onChange={this.handleInputChange} className='form-control form-check-input checkStyle' type='checkbox' /><span className='spanCheckTitle'>Check to enter as Spec</span><br /><br/>
+          <input value={this.state.existingGame} name="existingGame" onChange={this.handleInputChange} className='form-control' type='text' placeholder='Room ID' /><br />
+          <button onClick={this.joinGame} className='btn btn-primary'>Enter Game</button>
+        </div>
+
+        <h5><span className='spanOrange'>Or, create a new game:</span></h5>
+
+        <div className='boxEnterRoom'>
+          <input value={this.state.newGame} name="newGame" onChange={this.handleInputChange} className='form-control' type='text' placeholder='Room Name' /><br />
+          <button onClick={this.createNewGame} className='btn btn-primary'>Create New Game</button>
+        </div>
+        </div>
+      </div> 
     )
   }
 }
