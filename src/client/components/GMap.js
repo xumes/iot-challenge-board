@@ -17,7 +17,7 @@ class GMap extends Component {
         console.log("longitude", lon)
         const google = window.google;
         new google.maps.Map(this.refs.map, {
-            zoom: 12,
+            zoom: 18,
             center: {
                 lat: lat,
                 lng: lon
