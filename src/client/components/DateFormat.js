@@ -11,9 +11,9 @@ const DateFormat = props => {
     return (
         <ul className='list-group'>
             <li className="list-group-item list-group-item-primary">{semana}</li>
-            <li className="list-group-item list-group-item-success">{mes}</li>
-            <li className="list-group-item list-group-item-warning">{ano}}</li>
-            <li className="list-group-item list-group-item-info">{dia}</li>
+            <li className="list-group-item list-group-item-success">{dia}</li>
+            <li className="list-group-item list-group-item-warning">{mes}</li>
+            <li className="list-group-item list-group-item-info">{ano}</li>
         </ul>
     )
 }
