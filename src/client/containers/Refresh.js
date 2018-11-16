@@ -13,6 +13,10 @@ class Refresh extends Component {
         }
 
         this.onRefreshClick = this.onRefreshClick.bind(this)
+
+        //call the refresh on the first load
+        this.props.fetchWeather()
+        this.props.fetchAlerts()
     }
 
     onRefreshClick(event) {
@@ -20,7 +24,6 @@ class Refresh extends Component {
 
         this.props.fetchWeather()
         this.props.fetchAlerts()
-        
     }
 
     render() {

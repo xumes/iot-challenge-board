@@ -1,4 +1,18 @@
-export default function(state=null, action) {
-    console.log('Action received', action)
-    return state
+import _ from 'lodash'
+import { FETCH_WEATHER } from "../actions";
+
+const INITIAL_STATE = []
+
+export default function (state = INITIAL_STATE, action) {
+    if (action.type == FETCH_WEATHER) {
+        const result = _.chain(action.payload.data)
+            .uniqBy('payload')
+            .sortBy('date')
+            .reverse()
+            .slice(0, 5)
+            .value()
+        return result
+    } else {
+        return state
+    }
 }
