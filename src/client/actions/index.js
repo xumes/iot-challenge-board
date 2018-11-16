@@ -1,22 +1,22 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://iot-challenge-api.eu-de.mybluemix.net'  // /getdata    /getalerts
-
 export const FETCH_WEATHER = 'FETCH_WEATHER'
 export const FETCH_ALERTS = 'FETCH_ALERTS'
 
 export function fetchWeather(){
-    const url = `${BASE_URL}/getdata`
+    const url = '/api/weather'
     const request = axios.get(url)
     return {
-        type: FETCH_WEATHER
+        type: FETCH_WEATHER,
+        payload: request
     }
 }
 
 export function fetchAlerts(){
-    const url = `${BASE_URL}/getalerts`
+    const url = '/api/alert'
     const request = axios.get(url)
     return {
-        type: FETCH_ALERTS
+        type: FETCH_ALERTS,
+        payload: request
     }
 }

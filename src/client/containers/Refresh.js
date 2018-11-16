@@ -7,11 +7,20 @@ class Refresh extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            weather: '',
+            alert: ''
+        }
+
         this.onRefreshClick = this.onRefreshClick.bind(this)
     }
 
     onRefreshClick(event) {
         event.preventDefault()
+
+        this.props.fetchWeather()
+        this.props.fetchAlerts()
+        
     }
 
     render() {
