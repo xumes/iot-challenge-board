@@ -1,21 +1,39 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import CelsiusFormat from '../components/CelsiusFormat';
+import GMap from '../components/GMap';
+import DateFormat from '../components/DateFormat';
 
 class WeatherList extends Component {
+
+    renderWeather(cityData) {
+        return (
+            <tr key={cityData._id}>
+                <td><GMap city={cityData.payload} /></td>
+                <td><DateFormat date={cityData.date} /></td>
+                <td><CelsiusFormat 
+                    temp={cityData.observation.temp} 
+                    icon={cityData.observation.wx_icon}
+                    city={cityData.observation.obs_name}
+                    feels_like= {cityData.observation.feels_like}
+                    wind= {cityData.observation.wspd}
+                    /></td>
+            </tr>
+        )
+    }
+
     render() {
         return (
             <table className='table table-hover'>
                 <thead>
                     <tr>
-                        <th>Date</th>
                         <th>City</th>
-                        <th>Temperature</th>
-                        <th>Real Feel</th>
-                        <th>Pressure</th>
+                        <th>Date</th>
+                        <th>Weather Conditions</th>
                     </tr>
                 </thead>
                 <tbody>
-                {JSON.stringify(this.props)}
+                    {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
         )
@@ -23,7 +41,7 @@ class WeatherList extends Component {
 }
 
 function mapStateToProps(state) {
-    return {weather: state.weather}
+    return { weather: state.weather }
 }
 
 export default connect(mapStateToProps)(WeatherList)

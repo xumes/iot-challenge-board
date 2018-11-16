@@ -11,6 +11,8 @@ export default function (state = INITIAL_STATE, action) {
             .reverse()
             .slice(0, 5)
             .value()
+
+            console.log(result)
         return result
     } else {
         return state
