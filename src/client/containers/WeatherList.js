@@ -17,6 +17,7 @@ class WeatherList extends Component {
                     city={cityData.observation.obs_name}
                     feels_like= {cityData.observation.feels_like}
                     wind= {cityData.observation.wspd}
+                    phrase={cityData.observation.wx_phrase}
                     /></td>
             </tr>
         )

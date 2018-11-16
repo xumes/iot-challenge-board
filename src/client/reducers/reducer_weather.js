@@ -9,7 +9,7 @@ export default function (state = INITIAL_STATE, action) {
             .uniqBy('payload')
             .sortBy('date')
             .reverse()
-            .slice(0, 5)
+            .slice(0, 7)
             .value()
         return result
     } else {

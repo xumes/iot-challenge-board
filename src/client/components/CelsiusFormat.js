@@ -8,13 +8,13 @@ const CelsiusFormat  = props => {
         //const icon = require('./../weathericons/icon' + props.icon + '.png')
 
         // Set the background colour based on the temperature
-        if (props.temp >= 30) {
+        if (props.temp >= 29) {
             bgColorClass += 'very-warm';
         }
-        else if (props.temp > 20 && props.temp < 30) {
+        else if (props.temp > 18 && props.temp < 29) {
             bgColorClass += 'warm';
         }
-        else if (props.temp > 10 && props.temp < 20) {
+        else if (props.temp > 10 && props.temp < 18) {
             bgColorClass += 'normal';
         }
         else if (props.temp > 0 && props.temp < 10) {
@@ -28,10 +28,10 @@ const CelsiusFormat  = props => {
             <div className={bgColorClass}>
                 <h1 className="city">{props.city}</h1>
                 <div className="weather">
-                <p>icon</p>
+                <p>{props.phrase}</p>
                 </div>
                 <section className="weather-details">
-                    <div className="temp"><span className="temp-number">{props.temp}</span></div>
+                    <div className="temp"><span className="temp-number">{props.temp}C</span></div>
                     <div className="humidity"><i className="fas fa-temperature-high"></i>{props.feels_like} C</div>
                     <div className="wind"><i className="fas fa-wind"></i>{props.wind} km/h</div>
                 </section>
